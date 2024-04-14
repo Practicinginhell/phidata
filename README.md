@@ -160,6 +160,27 @@ pip install duckdb
 
 python data_assistant.py
 ```
+## Example 4: Using local assistant with Ollama
+
+Running `ollama serve`
+
+In a separate shell running `ollama pull llama2`
+
+For more details on installing:
+`https://github.com/ollama/ollama`
+
+Create a file `assistant.py`
+
+```python
+from phi.assistant import Assistant
+from phi.llm.ollama import Hermes
+
+assistant = Assistant(
+    llm=Hermes(model="llama2"),
+    description="You help people with their health and fitness goals.",
+)
+assistant.print_response("Share a quick healthy breakfast recipe.", markdown=True)
+```
 
 </details>
 
